@@ -15,6 +15,8 @@ import { CMS_NAME } from '../../lib/constants'
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
 
+  console.log('slugPost', post, morePosts)
+
   if (!router.isFallback && !post) {
     return <ErrorPage statusCode={404} />
   }
@@ -40,7 +42,7 @@ export default function Post({ post, morePosts, preview }) {
                 date={post.date}
                 author={post.author}
               />
-              <PostBody content={post.content} />
+              <PostBody content={post.description} />
             </article>
             <SectionSeparator />
             {morePosts && morePosts.length > 0 && (
